@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply a universal font and color */
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #202F64;
+    background: white; /* Make the background white as specified */
+  }
+  
+  /* Header and Navigation Styles */
+  .site-header {
+    background-color: #FFF;
+    padding: 2rem 3rem;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the navbar */
+  }
+  
+  .nav-item {
+    margin: 0 4rem;
+    text-decoration: none;
+    color: #202F64;
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+  
+  .nav-item:hover {
+    font-weight: 600;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1.5rem;
+    background-color: #202F64;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+  
+  /* Hero Section Styles */
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Divide the main area into two columns */
+    gap: 2rem; /* Adjust the space between the columns */
+    padding: 2rem;
+  }
+
+  .hero-section {
+    text-align: left;
+    padding: 4rem 0;
+    background-color: white;
+    grid-column: 1 / -1; 
+  }
+  
+  .headline {
+    font-size: 4.5rem; /* Adjusted for a closer match to design */
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    padding-left: 6rem; /* Space from the left */
+  }
+  
+  .headline-highlight {
+    position: relative;
+    color: #202F64;
+  }
+  
+  .headline-highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.1rem; /* Adjust as per your design */
+    width: 100%; /* Full width to match the design */
+    height: 0.3rem; /* Thickness of the underline */
+    background-color: #FF7697; /* Assuming a pink color */
+    animation: underline-slide-in 0.5s ease forwards;
+  }
+  
+  @keyframes underline-slide-in {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .subheadline {
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 0 6rem; /* Consistent padding from the left */
+  }
+  
+
+  
+  .categories-section {
+    flex: 1; /* Takes up only the space it needs based on content */
+    max-width: 300px; /* Adjust this based on your design */
+    padding-top: 2rem;
+    background-color: white; 
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 6rem; /* Consistent padding */
+  }
+  
+  .categories-list {
+    list-style: none; /* Remove default list styling */
+    padding-left: 6rem; /* Consistent padding */
+    padding-top: 1.5rem;
+  }
+  
+  .category-item {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 1.4rem; /* Space between items */
+
+    position: relative; /* Establish a positioning context for pseudo-elements */
+    padding-left: 20px; /* Provide some space for the rectangle */
+    list-style: none; /* Remove default list style */
+  }
+  .category-item::before {
+    content: ''; /* Necessary for the pseudo-element to work */
+    position: absolute; /* Position relative to the category item */
+    left: 0; /* Align to the left of the padding area */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%) rotate(45deg);/* Perfect vertical center */
+    width: 8px; /* Width of the rectangle */
+    height: 8px; /* Height of the rectangle */
+    background-color: #FF7697; /* Pink color */
+    border-radius: 1px; /* Optional: if you want rounded corners */
+  }
+  
+   /*Mentors Section Styles */
+  .mentors-section {
+    padding: 2rem;
+    background-color: white; 
+    flex: 3;
+  }
+  
+  .mentor-grid {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6rem;
+    justify-content: center;
+  }
+  
+  .mentor-card {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden; /* Make sure the image does not overflow the card border */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  
+  .mentor-image {
+    width: 210px; /* Set the width as desired */
+    height: 240px; /* Equal to the width for a circle */
+    border-radius: 15px; /* This will make it a circle */
+    object-fit: cover; /* This will ensure the image covers the area without stretching */
+    display: block; /* Ensures that the image does not have extra space below it */
+    
+  }
+  
+
+
+  .mentor-info {
+    padding: 1rem;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10; /* Ensures that the text is above the overlay */
+  }
+  
+  .mentor-overlay {
+    position: absolute;
+    top:730px;
+    border-radius: 15px;
+    width: 210px;
+    height: 220px;
+    background-color: rgba(32, 47, 100, 0.7); /* Semi-transparent blue background */
+    color: white; /* White text color */
+    padding: 15px;
+    box-sizing: border-box;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth transition for the overlay */
+    display: flex;
+    align-items: center; /* Aligns text vertically */
+    text-align: center; /* Aligns text horizontally */
+    justify-content: center; /* Centers text block */
+  }
+
+  /* Only show overlay when user hovers over the card */
+.mentor-card:hover .mentor-overlay {
+    opacity: 1; /* Show the overlay */
+  }
+  
+  .mentor-overlay p {
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+    font-size: 0.9em; /* Smaller text size */
+  }
+  
+  .mentor-name {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .mentor-title {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #555; /* A darker grey for subtitle */
+  }
+  
+  .mentor-rating {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-item {
+      margin: 0.5rem 0;
+    }
+  
+    .hero-section,
+    .categories-section,
+    .mentors-section {
+      padding: 2rem 1rem;
+    }
+  
+    .headline,
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .mentor-grid {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .headline {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .headline {
+      font-size: 1.2rem;
+    }
+    
+    /* Adjust the nav for mobile view */
+    .nav-links {
+      display: none; /* Hide the links */
+    }
+  
+    /* You could add a burger menu icon and script to toggle the nav-links */
+  }
+  
